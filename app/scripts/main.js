@@ -1,30 +1,29 @@
 'use strict';
 
-var allImageTrain = document.getElementsByClassName('all-images');
+var allImageTrain = document.getElementsByClassName('all-images'),
+    startTrain = Date.now();
 
 function carousel(valueButton) {
     switch (valueButton) {
         case 'leftButton' :
-            var startLeftTrain = Date.now(),
-                timerLeftTrain = setInterval(function() {
-                var timePassed = Date.now() - startLeftTrain;
+            var timerLeftTrain = setInterval(function () {
+                var timePassed = Date.now() - startTrain;
 
-                allImageTrain.style.left = timePassed / 5 + 'px';
+                allImageTrain.style.marginLeft = timePassed / 5 + 'px';
 
                 if (timePassed > 2000) clearInterval(timerLeftTrain);
 
             }, 20);
             break;
         case 'rightButton' :
-            var startRightTrain = Date.now(),
-                timerRightTrain = setInterval(function() {
-                    var timePassed = Date.now() - startRightTrain;
+            var timerRightTrain = setInterval(function () {
+                var timePassed = Date.now() - startTrain;
 
-                    allImageTrain.style.right = timePassed / 5 + 'px';
+                allImageTrain.style.marginRight = timePassed / 5 + 'px';
 
-                    if (timePassed > 2000) clearInterval(timerRightTrain);
+                if (timePassed > 2000) clearInterval(timerRightTrain);
 
-                }, 20);
+            }, 20);
             break;
     }
 }
