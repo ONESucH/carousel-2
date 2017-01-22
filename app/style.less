@@ -9,37 +9,37 @@
 .content {
   position: relative;
   text-align: center;
-  overflow: hidden;
 }
 
 .main-block-carousel {
+  display: flex;
   width: 600px;
   height: 400px;
   margin: 20vh auto;
+  align-items: stretch;
   overflow: hidden;
   box-shadow: 0 0 1px 1px black;
   i {
     margin: auto;
     font-size: 32px;
     cursor: pointer;
-    &:hover {
-      color: orangered;
-    }
   }
 }
 
 .carousel {
-  display: inline-block;
+  position: relative;
+  text-align: left;
   width: 400px;
   overflow: hidden;
-  text-align: left;
+  z-index: 1;
 }
 
 .all-images {
+  position: absolute;
   clear: both;
-  width: 2016px;
+  width: 999999px;
   img {
-    display: inline-block;
+    margin-right: -3.8px;
     width: 400px;
     height: 400px;
   }
@@ -47,14 +47,24 @@
 
 .left-button {
   position: relative;
-  float: left;
-  margin: 185px auto;
   width: 100px;
+  z-index: 2;
+  background: white;
+  align-self: center;
+  cursor: pointer;
+  &:hover > i {
+    color: orangered;
+  }
 }
 
 .right-button {
   position: relative;
-  float: right;
-  margin: 185px auto;
   width: 100px;
+  z-index: 2;
+  background: white;
+  align-self: center;
+  cursor: pointer;
+  &:hover > i {
+    color: orangered;
+  }
 }
