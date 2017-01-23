@@ -4,7 +4,7 @@ var allImageMove = document.getElementsByClassName('all-images')[0],
     searchAllImages = document.getElementsByTagName('img'),
     lengthAllImages = searchAllImages.length,
     moveBlock = 400,
-    widthBlockImage = allImageMove.style.left = 0;
+    widthBlockImage = allImageMove.style.left;
 
 function carousel(valueButton) {
     var widthAllImages = moveBlock * lengthAllImages;
@@ -13,20 +13,20 @@ function carousel(valueButton) {
         case 'leftButton' :
             widthBlockImage += moveBlock;
             allImageMove.style.left = widthBlockImage + 'px';
+
+            if (widthBlockImage > 0) {
+                widthBlockImage = Number('-' + widthAllImages);
+            }
             break;
+
         case 'rightButton' :
             widthBlockImage -= moveBlock;
             allImageMove.style.left = widthBlockImage + 'px';
-            break;
-    }
 
-    if (widthBlockImage > 0) {
-        widthBlockImage = Number('-' + widthAllImages);
-        console.log(widthBlockImage);
+            if (widthBlockImage === Number('-' + widthAllImages)) {
+                widthBlockImage = 0;
+            }
+            break;
+
     }
-    if (widthBlockImage < Number('-' + widthAllImages)) {
-        widthBlockImage = 0;
-        console.log(widthBlockImage);
-    }
-    console.log(widthBlockImage);
 }
