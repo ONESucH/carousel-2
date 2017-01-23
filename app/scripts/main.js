@@ -1,23 +1,32 @@
 'use strict';
 
-var allImageTrain = document.getElementsByClassName('all-images')[0],
+var allImageMove = document.getElementsByClassName('all-images')[0],
+    searchAllImages = document.getElementsByTagName('img'),
+    lengthAllImages = searchAllImages.length,
     moveBlock = 400,
-    widthBlockImage = allImageTrain.style.left = 0;
-
-console.log(widthBlockImage);
+    widthBlockImage = allImageMove.style.left = 0;
 
 function carousel(valueButton) {
+    var widthAllImages = moveBlock * lengthAllImages;
 
     switch (valueButton) {
         case 'leftButton' :
             widthBlockImage += moveBlock;
-            allImageTrain.style.left = widthBlockImage + 'px';
-            console.log(widthBlockImage);
+            allImageMove.style.left = widthBlockImage + 'px';
             break;
         case 'rightButton' :
             widthBlockImage -= moveBlock;
-            allImageTrain.style.left = widthBlockImage + 'px';
-            console.log(widthBlockImage);
+            allImageMove.style.left = widthBlockImage + 'px';
             break;
     }
+
+    if (widthBlockImage > 0) {
+        widthBlockImage = Number('-' + widthAllImages);
+        console.log(widthBlockImage);
+    }
+    if (widthBlockImage < Number('-' + widthAllImages)) {
+        widthBlockImage = 0;
+        console.log(widthBlockImage);
+    }
+    console.log(widthBlockImage);
 }
